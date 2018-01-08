@@ -12,6 +12,7 @@ driver.get("https://dev2.revetinc.com/join-now")
 wait = WebDriverWait(driver, 10)
 wait.until(EC.element_to_be_clickable((By.NAME,"form")))
 
+
 FirstName = driver.find_element_by_name("FirstName")
 FirstName.send_keys("FirstName_test")
 
@@ -28,13 +29,11 @@ driver.find_element_by_xpath("//div[contains(@class, 'form-group')]/button").cli
 
 driver.implicitly_wait(10)
 
-lst = driver.find_elements_by_xpath("//*[contains(text(), 'Success')]")
-
-if len(lst) > 0 :
-	print ("PASS")
+if driver.find_elements_by_xpath("//*[contains(text(), 'Success')]").is_displayed() :
+  print ("PASS")
 else :
-	print ("FAIL")
-	driver.get_screenshot_as_file("screenshot.png")
+  print ("FAIL")
+  driver.get_screenshot_as_file("screenshot.png")
 
 driver.implicitly_wait(0)
 

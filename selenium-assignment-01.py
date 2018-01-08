@@ -12,7 +12,6 @@ driver.get("https://dev2.revetinc.com/join-now")
 wait = WebDriverWait(driver, 10)
 wait.until(EC.element_to_be_clickable((By.NAME,"form")))
 
-
 FirstName = driver.find_element_by_name("FirstName")
 FirstName.send_keys("FirstName_test")
 

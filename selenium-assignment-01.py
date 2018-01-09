@@ -3,12 +3,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-import time
 
 
 driver = webdriver.Firefox()
 driver.get("https://dev2.revetinc.com/join-now")
 
+#делаем явное ожидание кликабельности элемента
 wait = WebDriverWait(driver, 10)
 wait.until(EC.element_to_be_clickable((By.NAME,"form")))
 
@@ -27,8 +27,10 @@ Password.send_keys("Test!test1")
 
 driver.find_element_by_xpath("//div[contains(@class, 'form-group')]/button").click()
 
+#делаем неявное ожидание, чтобы драйвер пробовал 10 секунд найти в DOM нужный элемент
 driver.implicitly_wait(10)
 
+#проверяем, виден ли элемент подтверждающий успешное действие
 if driver.find_elements_by_xpath("//*[contains(text(), 'Success')]").is_displayed() :
   print ("PASS")
 else :

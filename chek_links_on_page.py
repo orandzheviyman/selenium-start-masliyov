@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-import time
+
 
 driver = webdriver.Firefox()
 driver.get("http://vsevolodustinov.ru/blog/all/")
@@ -12,10 +12,8 @@ driver.get("http://vsevolodustinov.ru/blog/all/")
 wait = WebDriverWait(driver, 10)
 wait.until(EC.presence_of_element_located((By.NAME,"query")))
 
-
 #находим количество ссылок
 id = driver.find_elements_by_xpath("//body//div[contains(@class, 'e2-note-list e2-text')]//a")
-
 n = 0
 
 #проходим по списку

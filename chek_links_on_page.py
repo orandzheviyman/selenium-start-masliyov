@@ -6,27 +6,29 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 driver = webdriver.Firefox()
-driver.get("http://vsevolodustinov.ru/blog/")
+driver.get("http://vsevolodustinov.ru/blog/all/")
 
 #делаем явное ожидание появления элемента
 wait = WebDriverWait(driver, 10)
 wait.until(EC.presence_of_element_located((By.NAME,"query")))
 
-#находим все элементы-ссылки
-id = driver.find_elements_by_xpath("//body//a")
-links = []
+
+#находим количество ссылок
+id = driver.find_elements_by_xpath("//body//div[contains(@class, 'e2-note-list e2-text')]//a")
 
 n = 0
 
 #проходим по списку
 while n < len(id):
 	#получаем URL ссылки из элемента
-	links[n] = id[n].get_attribute("href")
-	print (links[n], sep = "\n")
+	id = driver.find_elements_by_xpath("//body//a")
+	links = id[n].get_attribute("href")
+	#выводим URL в консоль
+	print (id[n].get_attribute("href"))
 	#открываем ссылку
-	driver.get(links[n])
+	driver.get(links)
 	n = n + 1
-	#делаем явное ожидание появления элемента
-	wait.until(EC.presence_of_element_located((By.NAME,"query")))
+	driver.back()
+print ("Проверили", len(id), "ссылок")
 
 driver.close()

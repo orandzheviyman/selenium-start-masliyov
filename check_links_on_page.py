@@ -24,18 +24,18 @@ while n < len(id):
 	links = id[n].get_attribute("href")
 	
 	#получаем код статуса ответа
-	response = 404
+	response_code = 404
 	try:
-		response = urllib.request.urlopen(links).getcode()
+		response_code = urllib.request.urlopen(links).getcode()
 	except socket.error:
 		print("----------")
 	
 	#выводим URL и статус ответа в консоль
-	if response == 404 :
-		print ("ERROR", response, '   ', id[n].get_attribute("href"))
+	if response_code == 404 :
+		print ("ERROR", response_code, '   ', id[n].get_attribute("href"))
 		print("----------")
 	else :
-		print (response, '   ', id[n].get_attribute("href"))
+		print (response_code, '   ', id[n].get_attribute("href"))
 	
 	#открываем ссылку
 	driver.get(links)

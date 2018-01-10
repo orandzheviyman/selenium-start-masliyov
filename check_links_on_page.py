@@ -7,7 +7,7 @@ import urllib.request, socket
 
 
 driver = webdriver.Firefox()
-driver.get("|||TARGET_URL|||")
+driver.get("http://vsevolodustinov.ru/blog/all/")
 
 #делаем явное ожидание появления элемента
 wait = WebDriverWait(driver, 10)
@@ -28,11 +28,12 @@ while n < len(id):
 	try:
 		response = urllib.request.urlopen(links).getcode()
 	except socket.error:
-		print()
+		print("----------")
 	
 	#выводим URL и статус ответа в консоль
 	if response == 404 :
 		print ("ERROR", response, '   ', id[n].get_attribute("href"))
+		print("----------")
 	else :
 		print (response, '   ', id[n].get_attribute("href"))
 	

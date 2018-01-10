@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 driver = webdriver.Firefox()
-driver.get("http://vsevolodustinov.ru/blog/all/")
+driver.get("targetURL")
 
 #делаем явное ожидание появления элемента
 wait = WebDriverWait(driver, 10)

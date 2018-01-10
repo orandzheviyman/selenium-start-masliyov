@@ -20,7 +20,7 @@ n = 0
 #проходим по списку
 while n < len(id):
 	#получаем URL ссылки из элемента
-	id = driver.find_elements_by_xpath("|||TARGET_BLOCK|||")
+	id = driver.find_elements_by_xpath("//body//div[contains(@class, 'e2-note-list e2-text')]//a")
 	links = id[n].get_attribute("href")
 	
 	#получаем код статуса ответа

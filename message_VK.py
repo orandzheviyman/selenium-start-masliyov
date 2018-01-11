@@ -22,7 +22,7 @@ driver.find_element_by_id("l_msg").click()
 
 #делаем явное ожидание появления элемента
 wait.until(EC.presence_of_element_located((By.ID,"im_dialogs_search")))
-driver.find_element_by_id("im_dialogs_search").send_keys("Арина Кравц")
+driver.find_element_by_id("im_dialogs_search").send_keys("Игорь Посталенко")
 
 #делаем явное ожидание появления элемента
 wait.until(EC.presence_of_element_located((By.XPATH, "//*[@id='im_dialogs']/div[1]/div[1]/div/div[1]/li[1]/div/button")))

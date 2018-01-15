@@ -1,2 +1,2 @@
-# selenium-start-masliyov
-Training
+# Selenium practice
+
